@@ -1,0 +1,239 @@
+What will the following commands do?
+
+
+ echo "Hello, World!" -  it will print Hello,World!
+ name="Productive"  -  this string will get assign to the variable name.
+ touch file.txt  -	it will create a file called file.txt.
+ ls -a   -	it will list all files including hidden files.
+ rm file.txt  -	it will remove a file called file .txt 
+ cp file1.txt file2.txt  -	copy the content of file1.txt into file 2.txt 
+ mv file.txt /path/to/directory/  -   it will move the file.txt in the given path, inside "directory" .
+ chmod 755 script.sh  -  owner has the Read, Write, and Execution permission, and group and other user has Read and execution.   
+   
+ kill PID  -  it kills the process with its ID.
+ mkdir mydir && cd mydir && touch file.txt && echo "Hello, World!" > file.txt && cat file.txt  - this command will the directory named mydir and goes inside it, then file.txt is created inside this same directory. echo "Hello, World" will be written inside the file.txt and cat command will print Hello, World.
+ ls -l | grep ".txt" -  ls -l will list all the files including permissions,dates,time,etc and grep will search .txt file, and pipe symbolcombines these two 
+ cat file1.txt file2.txt | sort | uniq -d  - cat create files, then sorted it with uniq 
+ ls -l | grep "^d" -  it lists only directories in the current directory.
+ grep -r "pattern" /path/to/directory/  -  it will search "pattern" directory inside named directory.
+ chmod 644 file.txt   -  owner has Read and Write permission,and group and other user has only Read permission. 
+ cp -r source_directory destination_directory  -  it will copy source directory into destination directory
+ find /path/to/search -name "*.txt"   -  it will only find the .txt file in the given path.
+ chmod u+x file.txt  -  it will give the execution permission to the owner.
+ echo $PATH  -  it print the value of PATH variable .
+
+
+
+
+				PART B
+Identify True or False:
+
+1. ls is used to list files and directories in a directory -  TRUE
+2. mv is used to move files and directories - TRUE
+3. cd is used to copy files and directories - FALSE
+4. pwd stands for "print working directory" and displays the current directory - TRUE
+5. grep is used to search for patterns in files - True
+6. chmod 755 file.txt gives read, write, and execute permissions to the owner, and read and execute
+permissions to group and others - TRUE
+7. mkdir -p directory1/directory2 creates nested directories, creating directory2 inside directory1
+if directory1 does not exist - TRUE
+8. rm -rf file.txt deletes a file forcefully without confirmation - FALSE
+
+
+Identify the Incorrect Commands:
+
+1. chmodx is used to change file permissions -  chmod
+2. cpy is used to copy files and directories -  cp
+3. mkfile is used to create a new file -  mkdir 
+4. catx is used to concatenate files - cat
+5. rn is used to rename files - rename
+
+
+				PART C
+
+Question 1: Write a shell script that prints "Hello, World!" to the terminal.
+
+#!/bin/bash
+echo "Hello woorld"
+
+
+Question 2: Declare a variable named "name" and assign the value "CDAC Mumbai" to it. Print the value of the variable.
+
+#!/bin/bash
+name="CDAC Mumbai";
+echo $name
+
+
+Question 3: Write a shell script that takes a number as input from the user and prints it.
+
+#!/bin/bash
+read no
+echo $no
+
+
+Question 4: Write a shell script that performs addition of two numbers (e.g., 5 and 3) and prints the result.
+
+#!/bin/bash
+no1=5
+no2=3
+((result=$no1+$no2))
+echo $result
+
+
+Question 5: Write a shell script that takes a number as input and prints "Even" if it is even, otherwise prints "Odd".
+
+#!/bin/bash
+read no
+if [ $((no % 2)) -eq 0 ];
+then
+        echo "even"
+else
+        echo "odd"
+fi
+
+
+Question 6: Write a shell script that uses a for loop to print numbers from 1 to 5.
+
+#!/bin/bash
+for(( count=1; count<=5; count++ ))
+do
+        echo $count
+done
+
+
+Question 7: Write a shell script that uses a while loop to print numbers from 1 to 5.
+
+#!/bin/bash
+x=1
+while [[ $x -lt 6 ]];
+do
+        echo $x
+        let x+=1
+done
+
+
+Question 8: Write a shell script that checks if a file named "file.txt" exists in the current directory. If it
+does, print "File exists", otherwise, print "File does not exist".
+Question 9: Write a shell script that uses the if statement to check if a number is greater than 10 and
+prints a message accordingly.
+
+#!/bin/bash
+echo "enter no: "
+read no
+if [[ $no -gt 10 ]];
+then
+        echo "this $no is greater than 10"
+else
+        echo "this $no is lesser than 10"
+fi
+
+
+Question 10: Write a shell script that uses nested for loops to print a multiplication table for numbers
+from 1 to 5. The output should be formatted nicely, with each row representing a number and each
+column representing the multiplication result for that number.
+
+#!/bin/bash
+for(( i=1; i<=5; i++ ))
+do
+        for(( j=1; j<=10; j++ ))
+        do
+                ((table=$i*$j))
+                echo $table
+        done
+        printf "\n"
+done
+
+
+
+
+Question 11: Write a shell script that uses a while loop to read numbers from the user until the user enters
+a negative number. For each positive number entered, print its square. Use the break statement to exit the
+loop when a negative number is entered.
+
+#!/bin/bash
+echo "enter no"
+read no
+while [[ $no -ge 0 ]];
+do
+        ((square=$no*$no))
+        echo $square
+        echo "enter no: "
+        read no
+        if [[ $no -le -1 ]];
+        then
+                echo "hellllo"
+                break;
+        fi
+done
+
+
+
+				PART E
+
+1. Consider the following processes with arrival times and burst times:
+| Process | Arrival Time | Burst Time |
+|---------|--------------|------------|
+| P1      | 0            | 5          |
+| P2      | 1            | 3          |
+| P3      | 2             | 6         |
+Calculate the average waiting time using First-Come, First-Served (FCFS) scheduling
+
+	          p1	     p2     p3
+gantt chart:  |-----------|----|--------------|	
+	      0 	  5    8             13
+
+avg wait time = p1+p2+p3 = (0+4+6) = 10/3 = 3.3
+
+2. Consider the following processes with arrival times and burst times:
+| Process | Arrival Time | Burst Time |
+|---------|--------------|------------|
+| P1      | 0            | 3         |
+| P2      | 1            | 5          |
+| P3      | 2            | 1          |
+| P4      | 3             | 4         |
+Calculate the average turnaround time using Shortest Job First (SJF) scheduling.
+
+ 		   p1     p3    p4           p2 
+gantt chart:    |--------|---|-----------|--------------|
+		0	 3   4           8              13
+
+avg TAT=3+12+2+5 = 12/4 = 3
+
+3. Consider the following processes with arrival times, burst times, and priorities (lower number
+indicates higher priority):
+| Process | Arrival Time | Burst Time | Priority |
+|---------|--------------|------------|----------|
+| P1      | 0           | 6          | 3          |
+| P2      | 1           | 4          | 1         |
+| P3      | 2           | 7          |  4        |
+| P4      | 3           | 2           | 2        |
+Calculate the average waiting time using Priority Scheduling.
+
+		p1    p2     p4      p1			p3
+gantt chart:  |---|--------|------|-------------|----------------|
+	      0   1        5      7            12		19
+
+avg wait time = 6+0+10+2 = 18/4 = 4.5
+
+4. Consider the following processes with arrival times and burst times, and the time quantum for
+Round Robin scheduling is 2 units:
+| Process | Arrival Time | Burst Time |
+|---------|--------------|------------|
+| P1      | 0           | 4           |
+| P2      | 1            | 5          |
+| P3      | 2            | 2           |
+| P4      | 3            | 3           |
+Calculate the average turnaround time using Round Robin scheduling.
+
+		p1  p2  p3  p4 p1   p2  p4  p2
+gantt chart:  |---|---|---|---|---|---|---|---|
+	      0   2   4   6   8   10  12  13  14  
+avg TAT= 10+13+4+10 = 37/4 = 9.25
+
+5. Consider a program that uses the fork() system call to create a child process. Initially, the parent
+process has a variable x with a value of 5. After forking, both the parent and child processes
+increment the value of x by 1.
+What will be the final values of x in the parent and child processes after the fork() call?
+
+Ans: x = 7
+
