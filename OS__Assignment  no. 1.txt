@@ -1,0 +1,279 @@
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat > data.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+11
+12
+13
+14
+15
+^C
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ head -n 10 data.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ head 10 data.txt
+head: cannot open '10' for reading: No such file or directory
+==> data.txt <==
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ head -13 data.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+11
+12
+13
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ tail 5 data.txt
+tail: cannot open '5' for reading: No such file or directory
+==> data.txt <==
+6
+7
+8
+9
+0
+11
+12
+13
+14
+15
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ tail-5 data.txt
+tail-5: command not found
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ tail 5 data.txt
+tail: cannot open '5' for reading: No such file or directory
+==> data.txt <==
+6
+7
+8
+9
+0
+11
+12
+13
+14
+15
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ tail 5 data.txt
+tail: cannot open '5' for reading: No such file or directory
+==> data.txt <==
+6
+7
+8
+9
+0
+11
+12
+13
+14
+15
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat > numbers.txt
+q
+w
+e
+
+r
+t
+y
+u
+i
+o
+p
+a
+s
+d
+f
+g
+h
+j
+kl
+^C
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ head 15 data.txt
+head: cannot open '15' for reading: No such file or directory
+==> data.txt <==
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ head -15 data.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+11
+12
+13
+14
+15
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ head -15 numbers.txt
+q
+w
+e
+
+r
+t
+y
+u
+i
+o
+p
+a
+s
+d
+f
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ tail -5 data.txt
+11
+12
+13
+14
+15
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ tail -3 numbers.txt
+h
+j
+kl
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat > input.txt
+hello aditya kumbhar^C
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ tr 'a-z' 'A-Z' < input.txt > output.txt
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ ls
+data.txt  docs  docs1.zip  file2.txt  input.txt  newder  newdr  num.txt  numbers.txt  output.txt
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat output.txt
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat output.txt
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat duplicate.txt
+cat: duplicate.txt: No such file or directory
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat > duplicate.txt
+aa
+aa
+aaaaa
+aaaaaaaaaa
+aaaaaaaaaaaaaaaaaa
+
+aaaaaaaaaaaaaa
+aaa
+a
+a
+a
+aa
+^C
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat >> duplicate.txt
+dd
+aa
+dadad
+a
+da
+dada
+d^C
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ uniq duplicate.txt
+aa
+aaaaa
+aaaaaaaaaa
+aaaaaaaaaaaaaaaaaa
+
+aaaaaaaaaaaaaa
+aaa
+a
+aa
+dd
+aa
+dadad
+a
+da
+dada
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ uniq -u duplicate.txt
+aaaaa
+aaaaaaaaaa
+aaaaaaaaaaaaaaaaaa
+
+aaaaaaaaaaaaaa
+aaa
+aa
+dd
+aa
+dadad
+a
+da
+dada
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ ls
+data.txt  docs1.zip      file2.txt  newder  num.txt      output.txt
+docs      duplicate.txt  input.txt  newdr   numbers.txt
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ rm duplicate.txt
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ ls
+data.txt  docs  docs1.zip  file2.txt  input.txt  newder  newdr  num.txt  numbers.txt  output.txt
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat > duplicate.txt
+
+dad
+daa
+da
+dad
+ad
+ad
+a^C
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ uniq -u duplicate
+uniq: duplicate: No such file or directory
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ uniq -u duplicate.txt
+aa
+dad
+daa
+da
+dad
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ sort duplicate.txt | uniq
+aa
+ad
+da
+daa
+dad
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ cat > fruit.txt
+mango
+apple
+kiwi
+gava
+c
+b
+c
+^C
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$ sort fruit.txt | uniq -c
+      1 apple
+      1 b
+      2 c
+      1 gava
+      1 kiwi
+      1 mango
+adityak@DESKTOP-8UUDCJV:~/LinuxAssigement$
